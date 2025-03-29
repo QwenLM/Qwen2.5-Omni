@@ -1,0 +1,28 @@
+[project]
+name = "qwen2-5-omni"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "accelerate>=1.5.2",
+    "av>=14.2.0",
+    "ffmpeg==1.4",
+    "ffmpeg-python==0.2.0",
+    "flash-attn>=2.7.4.post1",
+    "gradio==5.21.0",
+    "gradio-client==1.7.2",
+    "hf-transfer>=0.1.9",
+    "ipython>=8.34.0",
+    "librosa==0.11.0",
+    "modelscope-studio==1.2.2",
+    "qwen-omni-utils==0.0.3",
+    "setuptools>=78.1.0",
+    "soundfile==0.13.1",
+    "torch>=2.6.0",
+    "torchvision>=0.21.0",
+    "transformers",
+]
+
+[tool.uv.sources]
+transformers = { git = "https://github.com/huggingface/transformers", rev = "3a1ead0aabed473eafe527915eea8c197d424356" }
