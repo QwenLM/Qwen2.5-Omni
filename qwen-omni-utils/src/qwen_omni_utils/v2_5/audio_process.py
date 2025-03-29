@@ -24,16 +24,19 @@ def process_audio_info(conversations: list[dict] | list[list[dict]], use_audio_i
                 if ele["type"] == "audio":
                     if "audio" in ele:
                         path = ele["audio"]
-                        if path.startswith("http://") or path.startswith("https://"):
-                            audios.append(librosa.load(audioread.ffdec.FFmpegAudioFile(path), sr=16000)[0])
-                        elif isinstance(path, np.ndarray):
+                        if isinstance(path, np.ndarray):
                             if path.ndim > 1:
                                 raise ValueError("Support only mono audio")
                             audios.append(path)
-                        elif path.startswith("file://"):
-                            audios.append(librosa.load(path[len("file://") :], sr=16000)[0])
+                        elif isinstance(path, str):
+                            if path.startswith("http://") or path.startswith("https://"):
+                                audios.append(librosa.load(audioread.ffdec.FFmpegAudioFile(path), sr=16000)[0])
+                            elif path.startswith("file://"):
+                                audios.append(librosa.load(path[len("file://") :], sr=16000)[0])
+                            else:
+                                audios.append(librosa.load(path, sr=16000)[0])
                         else:
-                            audios.append(librosa.load(path, sr=16000)[0])
+                            raise ValueError("Unsupported type for audio: {}".format(type(path)))
                     else:
                         raise ValueError("Unknown audio {}".format(ele))
                 if use_audio_in_video and ele["type"] == "video":
