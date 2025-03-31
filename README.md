@@ -49,7 +49,7 @@ We release **Qwen2.5-Omni**, the new flagship end-to-end multimodal model in the
 - [Docker](#-docker)
 <!-- - [Citation](#citation) -->
 
-## OverView 
+## Overview 
 ### Introduction
 Qwen2.5-Omni is an end-to-end multimodal model designed to perceive diverse modalities, including text, images, audio, and video, while simultaneously generating text and natural speech responses in a streaming manner. 
 
