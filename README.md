@@ -212,7 +212,7 @@ We conducted a comprehensive evaluation of Qwen2.5-Omni, which demonstrates stro
 
 #### Dataset: MusicCaps
 
-| Model             | Metric1 | Metric2 | Metric3 | Metric4  | Metric5  | Metric6 |
+| Model             |         |         |         |          |          |         |
 |-------------------|---------|---------|---------|----------|----------|---------|
 | LP-MusicCaps      | 0.291   | 0.149   | 0.089   | **0.061**| **0.129**| 0.130   |
 | Qwen2.5-Omni-7B   | **0.328**| **0.162**| **0.090**| 0.055   | 0.127    | **0.225**|
