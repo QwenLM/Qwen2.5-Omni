@@ -311,7 +311,6 @@ We conducted a comprehensive evaluation of Qwen2.5-Omni, which demonstrates stro
 
 #### Content Consistency
 **Dataset:** Zero-shot Speech Generation  
-*(Dataset for Chinese and English speech generation with a hard subset)*
 
 | Model              | test-zh | test-en | test-hard |
 |--------------------|---------|---------|-----------|
@@ -327,7 +326,6 @@ We conducted a comprehensive evaluation of Qwen2.5-Omni, which demonstrates stro
 
 #### Speaker Similarity
 **Dataset:** Zero-shot Speech Generation  
-*(Evaluation of voice similarity in the same speech generation setting)*
 
 | Model              | test-zh | test-en | test-hard |
 |--------------------|---------|---------|-----------|
