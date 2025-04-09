@@ -84,551 +84,283 @@ Qwen2.5-Omni在包括图像，音频，音视频等各种模态下的表现都�
     <img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2.5-Omni/bar.png"/>
 <p>
 
+<p>
 <details>
 <summary>Multimodality  -> Text</summary>
 
-<table class="tg"><thead>
-  <tr>
-    <th class="tg-0lax">Datasets</th>
-    <th class="tg-0lax">Model</th>
-    <th class="tg-0lax">Performance</th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td class="tg-0lax" rowspan="10">OmniBench<br>Speech | Sound Event | Music | Avg</td>
-    <td class="tg-0lax">Gemini-1.5-Pro</td>
-    <td class="tg-0lax">42.67%|42.26%|46.23%|42.91%</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MIO-Instruct</td>
-    <td class="tg-0lax">36.96%|33.58%|11.32%|33.80%</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">AnyGPT (7B)</td>
-    <td class="tg-0lax">17.77%|20.75%|13.21%|18.04%</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">video-SALMONN</td>
-    <td class="tg-0lax">34.11%|31.70%|<strong>56.60%</strong>|35.64%</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">UnifiedIO2-xlarge</td>
-    <td class="tg-0lax">39.56%|36.98%|29.25%|38.00%</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">UnifiedIO2-xxlarge</td>
-    <td class="tg-0lax">34.24%|36.98%|24.53%|33.98%</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MiniCPM-o</td>
-    <td class="tg-0lax">-|-|-|40.50%</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Baichuan-Omni-1.5</td>
-    <td class="tg-0lax">-|-|-|42.90%</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax"><strong>55.25%</strong>|<strong>60.00%</strong>|52.83%|<strong>56.13%</strong></td>
-  </tr>
-</tbody></table>
-</details>
+**Datasets:** OmniBench
 
+| Model               | Speech     | Sound Event | Music     | Avg       |
+|---------------------|------------|-------------|-----------|-----------|
+| Gemini-1.5-Pro      | 42.67%     | 42.26%      | 46.23%    | 42.91%    |
+| MIO-Instruct        | 36.96%     | 33.58%      | 11.32%    | 33.80%    |
+| AnyGPT (7B)         | 17.77%     | 20.75%      | 13.21%    | 18.04%    |
+| video-SALMONN       | 34.11%     | 31.70%      | **56.60%**| 35.64%    |
+| UnifiedIO2-xlarge   | 39.56%     | 36.98%      | 29.25%    | 38.00%    |
+| UnifiedIO2-xxlarge  | 34.24%     | 36.98%      | 24.53%    | 33.98%    |
+| MiniCPM-o           | -          | -           | -         | 40.50%    |
+| Baichuan-Omni-1.5   | -          | -           | -         | 42.90%    |
+| Qwen2.5-Omni-7B     | **55.25%** | **60.00%**  | 52.83%    | **56.13%**|
+</details>
 
 <details>
 <summary>Audio -> Text</summary>
 
+### ASR
 
-<table class="tg"><thead>
-  <tr>
-    <th class="tg-0lax">Datasets</th>
-    <th class="tg-0lax">Model</th>
-    <th class="tg-0lax">Performance</th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td class="tg-9j4x" colspan="3">ASR</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="11">Librispeech<br>dev-clean | dev other | test-clean | test-other</td>
-    <td class="tg-0lax">SALMONN</td>
-    <td class="tg-0lax">-|-|2.1|4.9</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">SpeechVerse</td>
-    <td class="tg-0lax">-|-|2.1|4.4</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Whisper-large-v3</td>
-    <td class="tg-0lax">-|-|1.8|3.6</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Llama-3-8B</td>
-    <td class="tg-0lax">-|-|-|3.4</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Llama-3-70B</td>
-    <td class="tg-0lax">-|-|-|3.1</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Seed-ASR-Multilingual</td>
-    <td class="tg-0lax">-|-|<strong>1.6</strong>|<strong>2.8</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MiniCPM-o</td>
-    <td class="tg-0lax">-|-|1.7|-</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MinMo</td>
-    <td class="tg-0lax">-|-|1.7|3.9</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen-Audio</td>
-    <td class="tg-0lax">1.8|4.0|2.0|4.2</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2-Audio</td>
-    <td class="tg-0lax"><strong>1.3</strong>|<strong>3.4</strong>|<strong>1.6</strong>|3.6</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax">1.6|3.5|1.8|3.4</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="4">Common Voice 15<br>en | zh | yue | fr</td>
-    <td class="tg-0lax">Whisper-large-v3</td>
-    <td class="tg-0lax">9.3|12.8|10.9|10.8</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MinMo</td>
-    <td class="tg-0lax">7.9|6.3|6.4|8.5</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2-Audio</td>
-    <td class="tg-0lax">8.6|6.9|<strong>5.9</strong>|9.6</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax"><strong>7.6</strong>|<strong>5.2</strong>|7.3|<strong>7.5</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="7">Fleurs<br>zh | en</td>
-    <td class="tg-0lax">Whisper-large-v3</td>
-    <td class="tg-0lax">7.7|4.1</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Seed-ASR-Multilingual</td>
-    <td class="tg-0lax">-|<strong>3.4</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Megrez-3B-Omni</td>
-    <td class="tg-0lax">10.8|-</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MiniCPM-o</td>
-    <td class="tg-0lax">4.4|-</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MinMo</td>
-    <td class="tg-0lax">3.0|3.8</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2-Audio</td>
-    <td class="tg-0lax">7.5|-</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax"><strong>3.0</strong>|4.1</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="5">Wenetspeech<br>test-net | test-meeting</td>
-    <td class="tg-0lax">Seed-ASR-Chinese</td>
-    <td class="tg-0lax"><strong>4.7|5.7</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Megrez-3B-Omni</td>
-    <td class="tg-0lax">-|16.4</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MiniCPM-o</td>
-    <td class="tg-0lax">6.9|-</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MinMo</td>
-    <td class="tg-0lax">6.8|7.4</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax">5.9|7.7</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="3">Voxpopuli-V1.0-en</td>
-    <td class="tg-0lax">Llama-3-8B</td>
-    <td class="tg-0lax">6.2</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Llama-3-70B</td>
-    <td class="tg-0lax"><strong>5.7</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax">5.8</td>
-  </tr>
-  <tr>
-    <td class="tg-9j4x" colspan="3">S2TT</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="8">CoVoST2<br>en-de | de-en | en-zh | zh-en</td>
-    <td class="tg-0lax">SALMONN</td>
-    <td class="tg-0lax">18.6|-|33.1|-</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">SpeechLLaMA</td>
-    <td class="tg-0lax">-|27.1|-|12.3</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">BLSP</td>
-    <td class="tg-0lax">14.1|-|-|-</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MiniCPM-o</td>
-    <td class="tg-0lax">-|-|<strong>48.2</strong>|27.2</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MinMo</td>
-    <td class="tg-0lax">-|<strong>39.9</strong>|46.7|26.0</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen-Audio</td>
-    <td class="tg-0lax">25.1|33.9|41.5|15.7</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2-Audio</td>
-    <td class="tg-0lax">29.9|35.2|45.2|24.4</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax"><strong>30.2</strong>|37.7|41.4|<strong>29.4</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-9j4x" colspan="3">SER</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="5">Meld</td>
-    <td class="tg-0lax">WavLM-large</td>
-    <td class="tg-0lax">0.542</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MiniCPM-o</td>
-    <td class="tg-0lax">0.524</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen-Audio</td>
-    <td class="tg-0lax">0.557</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2-Audio</td>
-    <td class="tg-0lax">0.553</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax"><strong>0.570</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-9j4x" colspan="3">VSC</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="5">VocalSound</td>
-    <td class="tg-0lax">CLAP</td>
-    <td class="tg-0lax">0.495</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Pengi</td>
-    <td class="tg-0lax">0.604</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen-Audio</td>
-    <td class="tg-0lax">0.929</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2-Audio</td>
-    <td class="tg-0lax"><strong>0.939</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax"><strong>0.939</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-9j4x" colspan="3">Music</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="2">GiantSteps Tempo</td>
-    <td class="tg-0lax">Llark-7B</td>
-    <td class="tg-0lax">0.86</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax"><strong>0.88</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="2">MusicCaps</td>
-    <td class="tg-0lax">LP-MusicCaps</td>
-    <td class="tg-0lax">0.291|0.149|0.089|<strong>0.061</strong>|<strong>0.129</strong>|0.130</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax"><strong>0.328</strong>|<strong>0.162</strong>|<strong>0.090</strong>|0.055|0.127|<strong>0.225</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-9j4x" colspan="3">Audio Reasoning</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="3">MMAU<br>Sound | Music | Speech | Avg</td>
-    <td class="tg-0lax">Gemini-Pro-V1.5</td>
-    <td class="tg-0lax">56.75|49.40|58.55|54.90</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2-Audio</td>
-    <td class="tg-0lax">54.95|50.98|42.04|49.20</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax"><strong>67.87|69.16|59.76|65.60</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-9j4x" colspan="3">Voice Chatting</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="8">VoiceBench<br>AlpacaEval | CommonEval | SD-QA | MMSU</td>
-    <td class="tg-0lax">Ultravox-v0.4.1-LLaMA-3.1-8B</td>
-    <td class="tg-0lax"><strong>4.55</strong>|3.90|53.35|47.17</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MERaLiON</td>
-    <td class="tg-0lax">4.50|3.77|55.06|34.95</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Megrez-3B-Omni</td>
-    <td class="tg-0lax">3.50|2.95|25.95|27.03</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Lyra-Base</td>
-    <td class="tg-0lax">3.85|3.50|38.25|49.74</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MiniCPM-o</td>
-    <td class="tg-0lax">4.42|<strong>4.15</strong>|50.72|54.78</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Baichuan-Omni-1.5</td>
-    <td class="tg-0lax">4.50|4.05|43.40|57.25</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2-Audio</td>
-    <td class="tg-0lax">3.74|3.43|35.71|35.72</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax">4.49|3.93|<strong>55.71</strong>|<strong>61.32</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="8">VoiceBench<br>OpenBookQA | IFEval | AdvBench | Avg</td>
-    <td class="tg-0lax">Ultravox-v0.4.1-LLaMA-3.1-8B</td>
-    <td class="tg-0lax">65.27|<strong>66.88</strong>|98.46|71.45</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MERaLiON</td>
-    <td class="tg-0lax">27.23|62.93|94.81|62.91</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Megrez-3B-Omni</td>
-    <td class="tg-0lax">28.35|25.71|87.69|46.25</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Lyra-Base</td>
-    <td class="tg-0lax">72.75|36.28|59.62|57.66</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MiniCPM-o</td>
-    <td class="tg-0lax">78.02|49.25|97.69|71.69</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Baichuan-Omni-1.5</td>
-    <td class="tg-0lax">74.51|54.54|97.31|71.14</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2-Audio</td>
-    <td class="tg-0lax">49.45|26.33|96.73|55.35</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B</td>
-    <td class="tg-0lax"><strong>81.10</strong>|52.87|<strong>99.42</strong>|<strong>74.12</strong></td>
-  </tr>
-</tbody></table>
+#### Dataset: Librispeech
+
+| Model                  | dev-clean | dev-other | test-clean | test-other |
+|------------------------|-----------|-----------|------------|------------|
+| SALMONN                | -         | -         | 2.1        | 4.9        |
+| SpeechVerse            | -         | -         | 2.1        | 4.4        |
+| Whisper-large-v3       | -         | -         | 1.8        | 3.6        |
+| Llama-3-8B             | -         | -         | -          | 3.4        |
+| Llama-3-70B            | -         | -         | -          | 3.1        |
+| Seed-ASR-Multilingual  | -         | -         | **1.6**    | **2.8**    |
+| MiniCPM-o              | -         | -         | 1.7        | -          |
+| MinMo                  | -         | -         | 1.7        | 3.9        |
+| Qwen-Audio             | 1.8       | 4.0       | 2.0        | 4.2        |
+| Qwen2-Audio            | **1.3**   | **3.4**   | **1.6**    | 3.6        |
+| Qwen2.5-Omni-7B        | 1.6       | 3.5       | 1.8        | 3.4        |
+
+#### Dataset: Common Voice 15
+
+| Model              | en   | zh   | yue  | fr   |
+|--------------------|------|------|------|------|
+| Whisper-large-v3   | 9.3  | 12.8 | 10.9 | 10.8 |
+| MinMo              | 7.9  | 6.3  | 6.4  | 8.5  |
+| Qwen2-Audio        | 8.6  | 6.9  | **5.9** | 9.6 |
+| Qwen2.5-Omni-7B    | **7.6** | **5.2** | 7.3 | **7.5** |
+
+#### Dataset: Fleurs
+
+| Model                | zh    | en     |
+|----------------------|-------|--------|
+| Whisper-large-v3     | 7.7   | 4.1    |
+| Seed-ASR-Multilingual| -     | **3.4**|
+| Megrez-3B-Omni       | 10.8  | -      |
+| MiniCPM-o            | 4.4   | -      |
+| MinMo                | 3.0   | 3.8    |
+| Qwen2-Audio          | 7.5   | -      |
+| Qwen2.5-Omni-7B      | **3.0** | 4.1  |
+
+#### Dataset: Wenetspeech
+
+| Model               | test-net | test-meeting |
+|---------------------|----------|--------------|
+| Seed-ASR-Chinese    | **4.7**  | 5.7          |
+| Megrez-3B-Omni      | -        | 16.4         |
+| MiniCPM-o           | 6.9      | -            |
+| MinMo               | 6.8      | 7.4          |
+| Qwen2.5-Omni-7B     | 5.9      | 7.7          |
+
+#### Dataset: Voxpopuli-V1.0-en
+
+| Model             | WER  |
+|-------------------|------|
+| Llama-3-8B        | 6.2  |
+| Llama-3-70B       | **5.7** |
+| Qwen2.5-Omni-7B   | 5.8  |
+
+### S2TT
+
+#### Dataset: CoVoST2
+
+| Model         | en-de | de-en | en-zh | zh-en |
+|---------------|-------|-------|-------|-------|
+| SALMONN       | 18.6  | -     | 33.1  | -     |
+| SpeechLLaMA   | -     | 27.1  | -     | 12.3  |
+| BLSP          | 14.1  | -     | -     | -     |
+| MiniCPM-o     | -     | -     | **48.2** | 27.2 |
+| MinMo         | -     | **39.9** | 46.7  | 26.0 |
+| Qwen-Audio    | 25.1  | 33.9  | 41.5  | 15.7  |
+| Qwen2-Audio   | 29.9  | 35.2  | 45.2  | 24.4  |
+| Qwen2.5-Omni-7B| **30.2** | 37.7  | 41.4  | **29.4** |
+
+### SER
+
+#### Dataset: Meld
+
+| Model             | Accuracy |
+|-------------------|----------|
+| WavLM-large       | 0.542    |
+| MiniCPM-o         | 0.524    |
+| Qwen-Audio        | 0.557    |
+| Qwen2-Audio       | 0.553    |
+| Qwen2.5-Omni-7B   | **0.570**|
+
+### VSC
+
+#### Dataset: VocalSound
+
+| Model           | Accuracy |
+|-----------------|----------|
+| CLAP            | 0.495    |
+| Pengi           | 0.604    |
+| Qwen-Audio      | 0.929    |
+| Qwen2-Audio     | **0.939**|
+| Qwen2.5-Omni-7B | **0.939**|
+
+### Music
+
+#### Dataset: GiantSteps Tempo
+
+| Model           | Score |
+|-----------------|-------|
+| Llark-7B        | 0.86  |
+| Qwen2.5-Omni-7B | **0.88** |
+
+#### Dataset: MusicCaps
+
+| Model             | Metric1 | Metric2 | Metric3 | Metric4  | Metric5  | Metric6 |
+|-------------------|---------|---------|---------|----------|----------|---------|
+| LP-MusicCaps      | 0.291   | 0.149   | 0.089   | **0.061**| **0.129**| 0.130   |
+| Qwen2.5-Omni-7B   | **0.328**| **0.162**| **0.090**| 0.055   | 0.127    | **0.225**|
+
+### Audio Reasoning
+
+#### Dataset: MMAU
+
+| Model            | Sound  | Music  | Speech | Avg    |
+|------------------|--------|--------|--------|--------|
+| Gemini-Pro-V1.5  | 56.75  | 49.40  | 58.55  | 54.90  |
+| Qwen2-Audio      | 54.95  | 50.98  | 42.04  | 49.20  |
+| Qwen2.5-Omni-7B  | **67.87** | **69.16** | **59.76** | **65.60** |
+
+### Voice Chatting
+
+#### Dataset: VoiceBench
+
+
+| Model                              | AlpacaEval | CommonEval | SD-QA   | MMSU   |
+|------------------------------------|------------|------------|---------|--------|
+| Ultravox-v0.4.1-LLaMA-3.1-8B       | **4.55**   | 3.90       | 53.35   | 47.17  |
+| MERaLiON                           | 4.50       | 3.77       | 55.06   | 34.95  |
+| Megrez-3B-Omni                     | 3.50       | 2.95       | 25.95   | 27.03  |
+| Lyra-Base                          | 3.85       | 3.50       | 38.25   | 49.74  |
+| MiniCPM-o                          | 4.42       | **4.15**   | 50.72   | 54.78  |
+| Baichuan-Omni-1.5                  | 4.50       | 4.05       | 43.40   | 57.25  |
+| Qwen2-Audio                        | 3.74       | 3.43       | 35.71   | 35.72  |
+| Qwen2.5-Omni-7B                    | 4.49       | 3.93       | **55.71**| **61.32**|
+
+
+| Model                              | OpenBookQA | IFEval  | AdvBench | Avg    |
+|------------------------------------|------------|---------|----------|--------|
+| Ultravox-v0.4.1-LLaMA-3.1-8B       | 65.27      | **66.88** | 98.46   | 71.45  |
+| MERaLiON                           | 27.23      | 62.93   | 94.81    | 62.91  |
+| Megrez-3B-Omni                     | 28.35      | 25.71   | 87.69    | 46.25  |
+| Lyra-Base                          | 72.75      | 36.28   | 59.62    | 57.66  |
+| MiniCPM-o                          | 78.02      | 49.25   | 97.69    | 71.69  |
+| Baichuan-Omni-1.5                  | 74.51      | 54.54   | 97.31    | 71.14  |
+| Qwen2-Audio                        | 49.45      | 26.33   | 96.73    | 55.35  |
+| Qwen2.5-Omni-7B                    | **81.10**  | 52.87   | **99.42**| **74.12**|
+
 </details>
 
 <details>
 <summary>Image -> Text</summary>
 
 | Dataset                        | Qwen2.5-Omni-7B | Other Best | Qwen2.5-VL-7B | GPT-4o-mini | 
-|--------------------------------|--------------|------------|---------------|-------------|
-| MMMU<sub>val</sub>             | 59.2         | 53.9       | 58.6          | **60.0**    | 
-| MMMU-Pro<sub>overall</sub>     | 36.6         | -          | **38.3**      | 37.6        | 
-| MathVista<sub>testmini</sub>   | 67.9         | **71.9**   | 68.2          | 52.5        | 
-| MathVision<sub>full</sub>      | 25.0         | 23.1       | **25.1**      | -           | 
-| MMBench-V1.1-EN<sub>test</sub> | 81.8         | 80.5       | **82.6**      | 76.0        | 
-| MMVet<sub>turbo</sub>          | 66.8         | **67.5**   | 67.1          | 66.9        | 
-| MMStar                         | **64.0**     | **64.0**   | 63.9          | 54.8        | 
-| MME<sub>sum</sub>              | 2340         | **2372**   | 2347          | 2003        | 
-| MuirBench                      | 59.2         | -          | **59.2**      | -           | 
-| CRPE<sub>relation</sub>        | **76.5**     | -          | 76.4          | -           | 
-| RealWorldQA<sub>avg</sub>      | 70.3         | **71.9**   | 68.5          | -           | 
-| MME-RealWorld<sub>en</sub>     | **61.6**     | -          | 57.4          | -           | 
-| MM-MT-Bench                    | 6.0          | -          | **6.3**       | -           | 
-| AI2D                           | 83.2         | **85.8**   | 83.9          | -           | 
-| TextVQA<sub>val</sub>          | 84.4         | 83.2       | **84.9**      | -           | 
-| DocVQA<sub>test</sub>          | 95.2         | 93.5       | **95.7**      | -           | 
-| ChartQA<sub>test Avg</sub>     | 85.3         | 84.9       | **87.3**      | -           | 
-| OCRBench_V2<sub>en</sub>       | **57.8**     | -          | 56.3          | -           | 
-
+|--------------------------------|-----------------|------------|---------------|-------------|
+| MMMU<sub>val</sub>             | 59.2            | 53.9       | 58.6          | **60.0**    | 
+| MMMU-Pro<sub>overall</sub>     | 36.6            | -          | **38.3**      | 37.6        | 
+| MathVista<sub>testmini</sub>   | 67.9            | **71.9**   | 68.2          | 52.5        | 
+| MathVision<sub>full</sub>      | 25.0            | 23.1       | **25.1**      | -           | 
+| MMBench-V1.1-EN<sub>test</sub> | 81.8            | 80.5       | **82.6**      | 76.0        | 
+| MMVet<sub>turbo</sub>          | 66.8            | **67.5**   | 67.1          | 66.9        | 
+| MMStar                         | **64.0**        | **64.0**   | 63.9          | 54.8        | 
+| MME<sub>sum</sub>              | 2340            | **2372**   | 2347          | 2003        | 
+| MuirBench                      | 59.2            | -          | **59.2**      | -           | 
+| CRPE<sub>relation</sub>        | **76.5**        | -          | 76.4          | -           | 
+| RealWorldQA<sub>avg</sub>      | 70.3            | **71.9**   | 68.5          | -           | 
+| MME-RealWorld<sub>en</sub>     | **61.6**        | -          | 57.4          | -           | 
+| MM-MT-Bench                    | 6.0             | -          | **6.3**       | -           | 
+| AI2D                           | 83.2            | **85.8**   | 83.9          | -           | 
+| TextVQA<sub>val</sub>          | 84.4            | 83.2       | **84.9**      | -           | 
+| DocVQA<sub>test</sub>          | 95.2            | 93.5       | **95.7**      | -           | 
+| ChartQA<sub>test Avg</sub>     | 85.3            | 84.9       | **87.3**      | -           | 
+| OCRBench_V2<sub>en</sub>       | **57.8**        | -          | 56.3          | -           | 
 
 | Dataset                  | Qwen2.5-Omni-7B | Qwen2.5-VL-7B | Grounding DINO | Gemini 1.5 Pro | 
-|--------------------------|--------------|---------------|----------------|----------------|
-| Refcoco<sub>val</sub>    | 90.5         | 90.0          | **90.6**       | 73.2           | 
-| Refcoco<sub>textA</sub>  | **93.5**     | 92.5          | 93.2           | 72.9           | 
-| Refcoco<sub>textB</sub>  | 86.6         | 85.4          | **88.2**       | 74.6           | 
-| Refcoco+<sub>val</sub>   | 85.4         | 84.2          | **88.2**       | 62.5           | 
-| Refcoco+<sub>textA</sub> | **91.0**     | 89.1          | 89.0           | 63.9           | 
-| Refcoco+<sub>textB</sub> | **79.3**     | 76.9          | 75.9           | 65.0           | 
-| Refcocog+<sub>val</sub>  | **87.4**     | 87.2          | 86.1           | 75.2           | 
-| Refcocog+<sub>test</sub> | **87.9**     | 87.2          | 87.0           | 76.2           | 
-| ODinW                    | 42.4         | 37.3          | **55.0**       | 36.7           | 
-| PointGrounding           | 66.5         | **67.3**      | -              | -              | 
-</details>
+|--------------------------|-----------------|---------------|----------------|----------------|
+| Refcoco<sub>val</sub>    | 90.5            | 90.0          | **90.6**       | 73.2           | 
+| Refcoco<sub>textA</sub>  | **93.5**        | 92.5          | 93.2           | 72.9           | 
+| Refcoco<sub>textB</sub>  | 86.6            | 85.4          | **88.2**       | 74.6           | 
+| Refcoco+<sub>val</sub>   | 85.4            | 84.2          | **88.2**       | 62.5           | 
+| Refcoco+<sub>textA</sub> | **91.0**        | 89.1          | 89.0           | 63.9           | 
+| Refcoco+<sub>textB</sub> | **79.3**        | 76.9          | 75.9           | 65.0           | 
+| Refcocog+<sub>val</sub>  | **87.4**        | 87.2          | 86.1           | 75.2           | 
+| Refcocog+<sub>test</sub> | **87.9**        | 87.2          | 87.0           | 76.2           | 
+| ODinW                    | 42.4            | 37.3          | **55.0**       | 36.7           | 
+| PointGrounding           | 66.5            | **67.3**      | -              | -              | 
 
+</details>
 
 <details>
 <summary>Video(without audio) -> Text</summary>
 
 | Dataset                     | Qwen2.5-Omni-7B | Other Best | Qwen2.5-VL-7B | GPT-4o-mini | 
-|-----------------------------|--------------|------------|---------------|-------------|
-| Video-MME<sub>w/o sub</sub> | 64.3         | 63.9       | **65.1**      | 64.8        | 
-| Video-MME<sub>w sub</sub>   | **72.4**     | 67.9       | 71.6          | -           | 
-| MVBench                     | **70.3**     | 67.2       | 69.6          | -           | 
-| EgoSchema<sub>test</sub>    | **68.6**     | 63.2       | 65.0          | -           | 
+|-----------------------------|-----------------|------------|---------------|-------------|
+| Video-MME<sub>w/o sub</sub> | 64.3            | 63.9       | **65.1**      | 64.8        | 
+| Video-MME<sub>w sub</sub>   | **72.4**        | 67.9       | 71.6          | -           | 
+| MVBench                     | **70.3**        | 67.2       | 69.6          | -           | 
+| EgoSchema<sub>test</sub>    | **68.6**        | 63.2       | 65.0          | -           | 
+
 </details>
 
 <details>
 <summary>Zero-shot Speech Generation</summary>
 
+#### Content Consistency
+**Dataset:** SEED
 
-<table class="tg"><thead>
-  <tr>
-    <th class="tg-0lax">Datasets</th>
-    <th class="tg-0lax">Model</th>
-    <th class="tg-0lax">Performance</th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td class="tg-9j4x" colspan="3">Content Consistency</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="9">SEED<br>test-zh | test-en | test-hard </td>
-    <td class="tg-0lax">Seed-TTS_ICL</td>
-    <td class="tg-0lax">1.11 | 2.24 | 7.58</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Seed-TTS_RL</td>
-    <td class="tg-0lax"><strong>1.00</strong> | 1.94 | <strong>6.42</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MaskGCT</td>
-    <td class="tg-0lax">2.27 | 2.62 | 10.27</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">E2_TTS</td>
-    <td class="tg-0lax">1.97 | 2.19 | -</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">F5-TTS</td>
-    <td class="tg-0lax">1.56 | <strong>1.83</strong> | 8.67</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">CosyVoice 2</td>
-    <td class="tg-0lax">1.45 | 2.57 | 6.83</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">CosyVoice 2-S</td>
-    <td class="tg-0lax">1.45 | 2.38 | 8.08</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B_ICL</td>
-    <td class="tg-0lax">1.70 | 2.72 | 7.97</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B_RL</td>
-    <td class="tg-0lax">1.42 | 2.32 | 6.54</td>
-  </tr>
-  <tr>
-    <td class="tg-9j4x" colspan="3">Speaker Similarity</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="9">SEED<br>test-zh | test-en | test-hard </td>
-    <td class="tg-0lax">Seed-TTS_ICL</td>
-    <td class="tg-0lax">0.796 | 0.762 | 0.776</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Seed-TTS_RL</td>
-    <td class="tg-0lax"><strong>0.801</strong> | <strong>0.766</strong> | <strong>0.782</strong></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">MaskGCT</td>
-    <td class="tg-0lax">0.774 | 0.714 | 0.748</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">E2_TTS</td>
-    <td class="tg-0lax">0.730 | 0.710 | -</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">F5-TTS</td>
-    <td class="tg-0lax">0.741 | 0.647 | 0.713</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">CosyVoice 2</td>
-    <td class="tg-0lax">0.748 | 0.652 | 0.724</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">CosyVoice 2-S</td>
-    <td class="tg-0lax">0.753 | 0.654 | 0.732</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B_ICL</td>
-    <td class="tg-0lax">0.752 | 0.632 | 0.747</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Qwen2.5-Omni-7B_RL</td>
-    <td class="tg-0lax">0.754 | 0.641 | 0.752</td>
-  </tr>
-</tbody></table>
+| Model              | test-zh | test-en | test-hard |
+|--------------------|---------|---------|-----------|
+| Seed-TTS_ICL       | 1.11    | 2.24    | 7.58      |
+| Seed-TTS_RL        | **1.00**| 1.94    | **6.42**  |
+| MaskGCT            | 2.27    | 2.62    | 10.27     |
+| E2_TTS             | 1.97    | 2.19    | -         |
+| F5-TTS             | 1.56    | **1.83**| 8.67      |
+| CosyVoice 2        | 1.45    | 2.57    | 6.83      |
+| CosyVoice 2-S      | 1.45    | 2.38    | 8.08      |
+| Qwen2.5-Omni-7B_ICL | 1.70    | 2.72    | 7.97      |
+| Qwen2.5-Omni-7B_RL  | 1.42    | 2.32    | 6.54      |
+
+#### Speaker Similarity
+**Dataset:** SEED
+
+| Model              | test-zh | test-en | test-hard |
+|--------------------|---------|---------|-----------|
+| Seed-TTS_ICL       | 0.796   | 0.762   | 0.776     |
+| Seed-TTS_RL        | **0.801**| **0.766**| **0.782**|
+| MaskGCT            | 0.774   | 0.714   | 0.748     |
+| E2_TTS             | 0.730   | 0.710   | -         |
+| F5-TTS             | 0.741   | 0.647   | 0.713     |
+| CosyVoice 2        | 0.748   | 0.652   | 0.724     |
+| CosyVoice 2-S      | 0.753   | 0.654   | 0.732     |
+| Qwen2.5-Omni-7B_ICL | 0.752   | 0.632   | 0.747     |
+| Qwen2.5-Omni-7B_RL  | 0.754   | 0.641   | 0.752     |
+
 </details>
 
 <details>
 <summary>Text -> Text</summary>
 
 | Dataset                           | Qwen2.5-Omni-7B | Qwen2.5-7B | Qwen2-7B | Llama3.1-8B | Gemma2-9B | 
-|-----------------------------------|-----------|------------|----------|-------------|-----------|
-| MMLU-Pro                          | 47.0      | **56.3**   | 44.1     | 48.3        | 52.1      | 
-| MMLU-redux                        | 71.0      | **75.4**   | 67.3     | 67.2        | 72.8      | 
-| LiveBench<sub>0831</sub>          | 29.6      | **35.9**   | 29.2     | 26.7        | 30.6      | 
-| GPQA                              | 30.8      | **36.4**   | 34.3     | 32.8        | 32.8      | 
-| MATH                              | 71.5      | **75.5**   | 52.9     | 51.9        | 44.3      | 
-| GSM8K                             | 88.7      | **91.6**   | 85.7     | 84.5        | 76.7      | 
-| HumanEval                         | 78.7      | **84.8**   | 79.9     | 72.6        | 68.9      | 
-| MBPP                              | 73.2      | **79.2**   | 67.2     | 69.6        | 74.9      | 
-| MultiPL-E                         | 65.8      | **70.4**   | 59.1     | 50.7        | 53.4      | 
-| LiveCodeBench<sub>2305-2409</sub> | 24.6      | **28.7**   | 23.9     | 8.3         | 18.9      | 
-</details>
+|-----------------------------------|-----------------|------------|----------|-------------|-----------|
+| MMLU-Pro                          | 47.0            | **56.3**   | 44.1     | 48.3        | 52.1      |
+| MMLU-redux                        | 71.0            | **75.4**   | 67.3     | 67.2        | 72.8      |
+| LiveBench<sub>0831</sub>          | 29.6            | **35.9**   | 29.2     | 26.7        | 30.6      |
+| GPQA                              | 30.8            | **36.4**   | 34.3     | 32.8        | 32.8      |
+| MATH                              | 71.5            | **75.5**   | 52.9     | 51.9        | 44.3      |
+| GSM8K                             | 88.7            | **91.6**   | 85.7     | 84.5        | 76.7      |
+| HumanEval                         | 78.7            | **84.8**   | 79.9     | 72.6        | 68.9      |
+| MBPP                              | 73.2            | **79.2**   | 67.2     | 69.6        | 74.9      |
+| MultiPL-E                         | 65.8            | **70.4**   | 59.1     | 50.7        | 53.4      |
+| LiveCodeBench<sub>2305-2409</sub> | 24.6            | **28.7**   | 23.9     | 8.3         | 18.9      |
 
+</details>
 ## 快速开始
 
 接下来，我们将提供如何在🤖 ModelScope和🤗 Transformers上使用 Qwen2.5-Omni. 由于Qwen2.5-Omni的代码在Hugging Face transformers中目前处于未合并阶段，尚未并入主分支，我们建议您从源代码构建：
