@@ -229,6 +229,8 @@ We conducted a comprehensive evaluation of Qwen2.5-Omni, which demonstrates stro
 
 ### Voice Chatting
 
+#### Dataset: VoiceBench
+
 
 | Model                              | AlpacaEval | CommonEval | SD-QA   | MMSU   |
 |------------------------------------|------------|------------|---------|--------|
