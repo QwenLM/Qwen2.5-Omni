@@ -312,7 +312,7 @@ We conducted a comprehensive evaluation of Qwen2.5-Omni, which demonstrates stro
 <summary>Zero-shot Speech Generation</summary>
 
 #### Content Consistency
-**Dataset:** Zero-shot Speech Generation  
+**Dataset:** SEED
 
 | Model              | test-zh | test-en | test-hard |
 |--------------------|---------|---------|-----------|
@@ -327,7 +327,7 @@ We conducted a comprehensive evaluation of Qwen2.5-Omni, which demonstrates stro
 | Qwen2.5-Omni-7B_RL  | 1.42    | 2.32    | 6.54      |
 
 #### Speaker Similarity
-**Dataset:** Zero-shot Speech Generation  
+**Dataset:** SEED
 
 | Model              | test-zh | test-en | test-hard |
 |--------------------|---------|---------|-----------|
