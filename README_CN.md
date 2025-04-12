@@ -867,7 +867,7 @@ model.disable_talker()
 
 为了获得灵活的体验，我们建议在调用`generate`函数时根据需要决定是否返回音频。当`return_audio`设置为`False`时，模型将仅返回文本输出以更快地获取文本响应。
 
-``python
+```python
 model = Qwen2_5OmniForConditionalGeneration.from_pretrained(
     "Qwen/Qwen2.5-Omni-7B",
     torch_dtype="auto",
