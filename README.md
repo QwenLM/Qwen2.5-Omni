@@ -27,8 +27,8 @@ We release **Qwen2.5-Omni**, the new flagship end-to-end multimodal model in the
 * 2025.06.09: Congratulations to our open source Qwen2.5-Omni-7B for ranking first in the [MMAU](https://sakshi113.github.io/mmau_homepage/#leaderboard) leaderboard, and first in the [MMAR](https://github.com/ddlBoJack/MMAR) of open source models in the audio understanding and reasoning evaluation!
 * 2025.05.16: We release 4-bit quantized Qwen2.5-Omni-7B (GPTQ-Int4/AWQ) models that maintain comparable performance to the original version on multimodal evaluations while reducing GPU VRAM consumption by over 50%+. See [GPTQ-Int4 and AWQ Usage](#gptq-int4-and-awq-usage) for details, and models can be obtained from Hugging Face ([GPTQ-Int4](https://huggingface.co/Qwen/Qwen2.5-Omni-7B-GPTQ-Int4)|[AWQ](https://huggingface.co/Qwen/Qwen2.5-Omni-7B-AWQ)) and ModelScope ([GPTQ-Int4](https://modelscope.cn/models/Qwen/Qwen2.5-Omni-7B-GPTQ-Int4)|[AWQ](https://modelscope.cn/models/Qwen/Qwen2.5-Omni-7B-AWQ))
 * 2025.05.13: [MNN Chat App](https://github.com/alibaba/MNN/blob/master/apps/Android/MnnLlmChat/README.md#releases) support Qwen2.5-Omni now, let's experience Qwen2.5-Omni on the edge devices! Please refer to [Deployment with MNN](#deployment-with-mnn) for information about memory consumption and inference speed benchmarks.
-* 2025.04.30: Exciting! We We have released Qwen2.5-Omni-3B to enable more platforms to run Qwen2.5-Omni. The model can be downloaded from [Hugging Face](https://huggingface.co/Qwen/Qwen2.5-Omni-3B). The [performance](#performance) of this model is updated, and please refer to [Minimum GPU memory requirements](#minimum-gpu-memory-requirements) for information about resource consumption. And for best experience, [transformers](#--transformers-usage) and [vllm](#deployment-with-vllm) code have update, you can pull the [official docker](#-docker) again to get them.
-* 2025.04.11: We release the new vllm version which support audio ouput now! Please experience it from source or our docker image.
+* 2025.04.30: Exciting! We have released Qwen2.5-Omni-3B to enable more platforms to run Qwen2.5-Omni. The model can be downloaded from [Hugging Face](https://huggingface.co/Qwen/Qwen2.5-Omni-3B). The [performance](#performance) of this model is updated, and please refer to [Minimum GPU memory requirements](#minimum-gpu-memory-requirements) for information about resource consumption. And for the best experience, [transformers](#--transformers-usage) and [vllm](#deployment-with-vllm) code has been updated, you can pull the [official Docker image](#-docker) again to get them.
+* 2025.04.11: We release the new vllm version, which supports audio output now! Please experience it from the source or our Docker image.
 * 2025.04.02: ⭐️⭐️⭐️ Qwen2.5-Omni reaches top-1 on Hugging Face Trending! 
 * 2025.03.29: ⭐️⭐️⭐️ Qwen2.5-Omni reaches top-2 on Hugging Face Trending! 
 * 2025.03.26: Real-time interaction with Qwen2.5-Omni is available on [Qwen Chat](https://chat.qwen.ai/). Let's start this amazing journey now!
@@ -714,8 +714,8 @@ We conducted a comprehensive evaluation of Qwen2.5-Omni, which demonstrates stro
 
 Below, we provide simple examples to show how to use Qwen2.5-Omni with 🤖 ModelScope and 🤗 Transformers.
 
-The codes of Qwen2.5-Omni has been in the latest Hugging face transformers and we advise you to install with command:
-```
+The code of Qwen2.5-Omni has been in the latest HuggingFace transformers, and we advise you to install with the command:
+```bash
 pip install transformers==4.52.3
 pip install accelerate
 ```
@@ -918,13 +918,13 @@ We strongly advise users especially those in mainland China to use ModelScope, `
 
 ### GPTQ-Int4 and AWQ Usage
 
-To improve the Qwen2.5-Omni-7B's operability on devices with constrained GPU memory, we implemented 4-bit quantization of the Thinker's weights using GPTQ and AWQ, effectively reducing GPU VRAM usage. Ohter key optimizations include:
+To improve the Qwen2.5-Omni-7B's operability on devices with constrained GPU memory, we implemented 4-bit quantization of the Thinker's weights using GPTQ and AWQ, effectively reducing GPU VRAM usage. Other key optimizations include:
 * Enhanced the inference pipeline to load model weights on-demand for each module and offload them to CPU memory once inference is complete, preventing peak VRAM usage from becoming excessive.
 * Converted the code2wav module to support streaming inference, thereby avoiding the pre-allocation of excessive GPU memory.
 * Adjusted the ODE solver from a second-order (RK4) to a first-order (Euler) method to further decrease computational overhead.
 
 These improvements aim to ensure efficient performance of Qwen2.5-Omni across a range of hardware configurations, particularly those with lower GPU memory availability (RTX3080, 4080, 5070, etc). Currently, the relevant models and usage methods can be obtained from Hugging Face ([GPTQ-Int4](https://huggingface.co/Qwen/Qwen2.5-Omni-7B-GPTQ-Int4)|[AWQ](https://huggingface.co/Qwen/Qwen2.5-Omni-7B-AWQ)) and ModelScope ([GPTQ-Int4](https://modelscope.cn/models/Qwen/Qwen2.5-Omni-7B-GPTQ-Int4)|[AWQ](https://modelscope.cn/models/Qwen/Qwen2.5-Omni-7B-AWQ)). As below, we provide simple example to show how to use Qwen2.5-Omni-7B-GPTQ-Int4 with `gptqmodel` as follows:
-```
+```bash
 pip install transformers==4.52.3
 pip install accelerate
 pip install gptqmodel==2.0.0
@@ -937,8 +937,8 @@ cd Qwen2.5-Omni/low-VRAM-mode/
 CUDA_VISIBLE_DEVICES=0 python3 low_VRAM_demo_gptq.py
 ```
 
-To use Qwen2.5-Omni-7B-AWQ with `autoawq` please run:
-```
+To use Qwen2.5-Omni-7B-AWQ with `autoawq`, please run:
+```bash
 pip install transformers==4.52.3
 pip install accelerate
 pip install autoawq==0.2.9
@@ -1172,11 +1172,11 @@ conversation = [
 ## Chat with Qwen2.5-Omni
 
 ### Online Demo
-Without deployment, you can experience online web demo directly by visiting our [Hugginface Spaces](https://huggingface.co/spaces/Qwen/Qwen2.5-Omni-7B-Demo) and [Modelscope Studio](https://modelscope.cn/studios/Qwen/Qwen2.5-Omni-Demo).
+Without deployment, you can experience the online web demo directly by visiting our [Hugginface Spaces](https://huggingface.co/spaces/Qwen/Qwen2.5-Omni-7B-Demo) and [Modelscope Studio](https://modelscope.cn/studios/Qwen/Qwen2.5-Omni-Demo).
 
 ### Launch Local Web UI Demo
 
-In this section, we provide instructions for users to build a web-based user interface (UI) demo. This UI demo allows users to interact with a predefined model or application through a web browser. Follow the steps below to get started or you can launch the web demo directly from our [official docker image](#-docker).
+In this section, we provide instructions for users to build a web-based user interface (UI) demo. This UI demo allows users to interact with a predefined model or application through a web browser. Follow the steps below to get started, or you can launch the web demo directly from our [official Docker image](#-docker).
 
 #### Installation
 
@@ -1311,7 +1311,7 @@ The table below shows memory consumption and inference speed benchmarks for the 
 
 ## 🐳 Docker
 
-To simplify the deploy process, we provide docker images with pre-build environments: [qwenllm/qwen-omni](https://hub.docker.com/r/qwenllm/qwen-omni). You only need to install the driver and download model files to launch demos.
+To simplify the deployment process, we provide Docker images with pre-built environments: [qwenllm/qwen-omni](https://hub.docker.com/r/qwenllm/qwen-omni). You only need to install the driver and download model files to launch demos.
 
 ```bash
 docker run --gpus all --ipc=host --network=host --rm --name qwen2.5-omni -it qwenllm/qwen-omni:2.5-cu121 bash
