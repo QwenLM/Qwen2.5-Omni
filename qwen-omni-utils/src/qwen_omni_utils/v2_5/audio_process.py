@@ -37,7 +37,7 @@ def process_audio_info(conversations: list[dict] | list[list[dict]], use_audio_i
         conversations = [conversations]
     for conversation in conversations:
         for message in conversation:
-            if not isinstance(message["content"], list):
+            if "content" not in message or not isinstance(message["content"], list):
                 continue
             for ele in message["content"]:
                 if ele["type"] == "audio":
