@@ -8,6 +8,7 @@ import os
 import sys
 import time
 import warnings
+from concurrent.futures import ThreadPoolExecutor
 from functools import lru_cache
 from io import BytesIO
 from typing import Optional
@@ -395,6 +396,41 @@ def get_video_reader_backend() -> str:
     return video_reader_backend
 
 
+def _resize_video_framewise(video: torch.Tensor, size: list[int]) -> torch.Tensor:
+    """Resize a (nframes, C, H, W) video frame by frame on Python threads, with
+    ATen intra-op threads clamped to 1 for the duration.
+
+    The batched ``transforms.functional.resize`` call runs as one large OpenMP
+    parallel region; on many-core hosts a rare libgomp barrier lost-wakeup can
+    leave that region blocked in futex wait forever, freezing the whole process
+    (https://github.com/QwenLM/Qwen2.5-Omni/issues/394). Per-frame calls under
+    ``torch.set_num_threads(1)`` never form an OpenMP team, so that hang cannot
+    happen here; the thread pool restores the parallelism (ATen releases the
+    GIL), and each batch row is computed independently, so the output is
+    bit-for-bit identical to the batched call. Frames are returned as float32,
+    matching the ``.float()`` the batched call chained.
+    """
+    num_threads = torch.get_num_threads()
+    torch.set_num_threads(1)
+    try:
+        with ThreadPoolExecutor(max_workers=min(8, video.shape[0])) as pool:
+            return torch.cat(
+                list(
+                    pool.map(
+                        lambda i: transforms.functional.resize(
+                            video[i : i + 1],
+                            size,
+                            interpolation=InterpolationMode.BICUBIC,
+                            antialias=True,
+                        ).float(),
+                        range(video.shape[0]),
+                    )
+                )
+            )
+    finally:
+        torch.set_num_threads(num_threads)
+
+
 def fetch_video(ele: dict, image_factor: int = IMAGE_FACTOR, return_video_sample_fps: bool = False) -> torch.Tensor | list[Image.Image]:
     if isinstance(ele["video"], str):
         video_reader_backend = get_video_reader_backend()
@@ -426,12 +462,7 @@ def fetch_video(ele: dict, image_factor: int = IMAGE_FACTOR, return_video_sample
                 min_pixels=min_pixels,
                 max_pixels=max_pixels,
             )
-        video = transforms.functional.resize(
-            video,
-            [resized_height, resized_width],
-            interpolation=InterpolationMode.BICUBIC,
-            antialias=True,
-        ).float()
+        video = _resize_video_framewise(video, [resized_height, resized_width])
         if return_video_sample_fps:
             return video, sample_fps
         return video
