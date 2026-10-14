@@ -29,9 +29,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/QwenLM/Qwen2-VL/tree/main/qwen-vl-utils"
-Repository = "https://github.com/QwenLM/Qwen2-VL.git"
-Issues = "https://github.com/QwenLM/Qwen2-VL/issues"
+Homepage = "https://github.com/QwenLM/Qwen2.5-Omni/tree/main/qwen-omni-utils"
+Repository = "https://github.com/QwenLM/Qwen2.5-Omni.git"
+Issues = "https://github.com/QwenLM/Qwen2.5-Omni/issues"
 
 [project.optional-dependencies]
 decord = [
